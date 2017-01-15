@@ -26,7 +26,7 @@ if !exists("g:netrw_banner")
 endif
 let s:netrw_up = ''
 
-nnoremap <silent> <Plug>VinegarUp :call <SID>opendir('edit')<CR>
+nnoremap <silent> <Plug>VinegarUp :call <SID>opendir('Explore')<CR>
 if empty(maparg('-', 'n'))
   nmap - <Plug>VinegarUp
 endif
@@ -47,8 +47,9 @@ function! s:opendir(cmd) abort
   elseif expand('%') =~# '^$\|^term:[\/][\/]'
     execute a:cmd '.'
   else
+    let alt_file = expand('%:t')
     execute a:cmd '%:h/'
-    call s:seek(expand('#:t'))
+    call s:seek(alt_file)
   endif
 endfunction
 
@@ -91,6 +92,7 @@ function! s:setup_vinegar() abort
   xmap <buffer> ! .!
   nnoremap <buffer> <silent> cg :exe 'keepjumps cd ' .<SID>fnameescape(b:netrw_curdir)<CR>
   nnoremap <buffer> <silent> cl :exe 'keepjumps lcd '.<SID>fnameescape(b:netrw_curdir)<CR>
+  nnoremap <buffer> <silent> <Esc> :bdelete<CR>
   exe 'syn match netrwSuffixes =\%(\S\+ \)*\S\+\%('.join(map(split(&suffixes, ','), s:escape), '\|') . '\)[*@]\=\S\@!='
   hi def link netrwSuffixes SpecialKey
 endfunction
