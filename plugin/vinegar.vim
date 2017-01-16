@@ -48,8 +48,12 @@ function! s:opendir(cmd) abort
     execute a:cmd '.'
   else
     let alt_file = expand('%:t')
+    if alt_file == 0
+      let @# = expand('%')
+    endif
+    normal m`
     execute a:cmd '%:h/'
-    call s:seek(expand(alt_file))
+    call s:seek(alt_file)
   endif
 endfunction
 

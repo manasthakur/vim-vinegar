@@ -2,9 +2,10 @@
 
 _This fork solves the [issue](https://github.com/tpope/vim-vinegar/issues/74) of
 an unlisted netrw buffer lying around. Courtesy: [this
-comment](https://github.com/tpope/vim-vinegar/issues/74#issuecomment-270701053)._
+comment](https://github.com/tpope/vim-vinegar/issues/74#issuecomment-272830844)
+and [this
+comment](https://github.com/tpope/vim-vinegar/issues/74#issuecomment-272835909)._
 
-Solves the issue of a netrw buffer lying unlisted.
 > Split windows and the project drawer go together like oil and vinegar. I
 > don't mean to say that you can combine them to create a delicious salad
 > dressing. I mean that they don't mix well!
